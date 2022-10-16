@@ -1,9 +1,8 @@
-from importlib.resources import path
+# from importlib.resources import path
 import os
 import shutil
 from tkinter import *
 from tkinter import filedialog
-from PIL import Image, ImageTk
 
 # improving windows file Separator. Sorting them into theri respected folders
 # Enchancement of windows filter function. Sorting files  on the basices of file extension
