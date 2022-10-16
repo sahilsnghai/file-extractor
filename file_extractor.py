@@ -29,25 +29,23 @@ dict_extensions = {
 
 # Function
 def Focus_In(e):
+    
     if path_field.get() == "Path folder":
         path_field.delete(0, 'end')
 
 
 def Focus_Out(e):
+
     if path_field.get() != None:
-        # path_field.delete(0,'end')
         path_field.insert(0, "Path folder")
 
 
 def select_path():
+
     global path
     path = filedialog.askdirectory()
     path_field.delete(0, 'end')
     path_field.insert(0, path)
-
-    # path_field.config(textvariable=path)
-    # path_field.insert(0,path)
-    # path_vari.config(text=path)
 
     select_btn.config(state=ACTIVE, command=file_sorter)
 
@@ -63,7 +61,7 @@ def file_finder(folder_path, file_extensions):
 
 
 def file_sorter():
-    # Focus_In(None)
+    
     path_list.delete(0, END)
     folderpath = path_field.get()
     # print(folderpath)
@@ -89,24 +87,19 @@ def file_sorter():
 #Label and Entry
 logo_img = PhotoImage(file='file_logo.png')
 canvas.create_image(300, 80, image=logo_img)
-# path_vari = Label(screen,image= os.getcwd() + r"\file_logo.jpg",font=('Montserrat',13),background='#d8e3f2',fg='black')
 path_label = Label(screen, text='Select the folder location below: ', font=(
     'Bree Serif', 11, 'bold'), fg='white', background="#efb04f")  # ,bg='#787676',#224072
 path_field = Entry(screen, width=50, font=('Calibri', 13))
 path_field.insert(0, "Path folder")
 path_field.pack(pady=90)
 
-# Button Image
-# print(os.getcwd() + r'\file_locate_icon.png')
-# img = Image.open(os.getcwd() + r'\file_locate_icon.png' ).resize((10,13))
-# img = ImageTk.PhotoImage(img)
-# Buttons
+
 locate_btn = Button(screen, text="Search", width=5,
                     height=1, command=select_path)
 select_btn = Button(screen, width=12, text='Arrange',
                     height=1, state=DISABLED, command=file_sorter)
 
-#
+#List Box
 path_list = Listbox(screen, width=82, height=13, font=("Calibri", 11))
 path_list.pack(padx=10, pady=10)
 
@@ -117,7 +110,6 @@ path_field.bind('<FocusOut>', Focus_Out)
 # Add to window
 canvas.create_window(255, 100, window=path_field)
 canvas.create_window(295, 70, window=path_label)
-# canvas.create_window(300, 35, window=path_vari)
 canvas.create_window(467, 101, window=locate_btn)
 canvas.create_window(540, 100, window=select_btn)
 canvas.create_window(300, 260, window=path_list)
